@@ -1,0 +1,22 @@
+
+services:
+  db:
+    image: postgres:16
+    container_name: livemarket_db
+    environment:
+      POSTGRES_DB: livemarket
+      POSTGRES_USER: livemarket
+      POSTGRES_PASSWORD: livemarket123
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    container_name: livemarket_redis
+    ports:
+      - "6379:6379"
+
+volumes:
+  pgdata:
